@@ -1,65 +1,27 @@
+// ======================
+//        純文字訊息
+// ======================
 export const text = (text) => {
   return {
     type: 'text',
     text
   }
-}
-
-export const template = {
-  buttons: (place) => {
-    return {
-      type: 'template',
-      altText: `想去${place.name}嗎？`,
-      template: {
-        type: 'buttons',
-        title: place.name,
-        text: place.description || '沒有內容',
-        actions: [
-          {
-            type: 'postback',
-            label: '📚 資訊',
-            data: handleDetailText(place)
-          },
-          {
-            type: 'uri',
-            label: '📍 地圖',
-            uri: `https://www.google.com.tw/maps/@${place.location.lat},${place.location.lng},17z`
-          }
-        ]
-      }
-    }
-  },
-  carousel: (places) => {
-    let columns = places.map(place => {
-      return {
-        title: place.name,
-        text: place.description,
-        actions: [
-          {
-            type: 'postback',
-            label: '📚 資訊',
-            data: handleDetailText(place)
-          },
-          {
-            type: 'uri',
-            label: '📍 地圖',
-            uri: `https://www.google.com.tw/maps/@${place.location.lat},${place.location.lng},17z`
-          }
-        ]
-      }
-
-    })
-    return {
-      type: 'template',
-      altText: '我有一份好新鮮的名單 🤫',
-      template: {
-        type: 'carousel',
-        columns
-      }
-    }
+};
+// ======================
+//         地鐵圖
+// ======================
+export const subwayImage = () => {
+  return {
+    type: 'image',
+    originalContentUrl: 'https://firebasestorage.googleapis.com/v0/b/line-bot-seoul.appspot.com/o/%E5%9C%B0%E9%90%B5%E5%9C%96.png?alt=media&token=3f5a34dd-fd9b-440d-af1d-3509d30bf70a',
+    previewImageUrl: 'https://firebasestorage.googleapis.com/v0/b/line-bot-seoul.appspot.com/o/%E5%9C%B0%E9%90%B5%E5%9C%96.png?alt=media&token=3f5a34dd-fd9b-440d-af1d-3509d30bf70a'
   }
 }
 
+
+// ======================
+//        單個景點
+// ======================
 export const singleSpot = (place) => {
 
   return {
@@ -87,11 +49,6 @@ export const singleSpot = (place) => {
         aspectRatio: '20:13',
         aspectMode: 'cover',
         backgroundColor: '#FFFFFF',
-        action: {
-          type: 'uri',
-          label: 'Action',
-          uri: 'https://linecorp.com/'
-        }
       },
       body: {
         type: 'box',
@@ -191,8 +148,10 @@ export const singleSpot = (place) => {
       }
     }
   }
-}
-
+};
+// ======================
+//          目錄
+// ======================
 export const contentCarousel = async (list) => {
   let card = [];
   let cardContent = [];
@@ -204,87 +163,85 @@ export const contentCarousel = async (list) => {
     for (let spot of temp) {
 
       cardContent.push({
-        "type": "box",
-        "layout": "baseline",
-        "contents": [
+        type: "box",
+        layout: "baseline",
+        contents: [
           {
-            "type": "text",
-            "text": spot.name,
-            "flex": 0,
-            "margin": "sm",
-            "weight": "bold"
+            type: "text",
+            text: spot.name,
+            flex: 0,
+            size: "sm",
+            margin: "sm",
+            weight: "bold"
           },
           {
-            "type": "text",
-            "text": "新村",
-            "size": "sm",
-            "align": "end",
-            "color": "#AAAAAA"
+            type: "text",
+            text: spot.area,
+            size: "sm",
+            align: "end",
+            color: "#AAAAAA"
           }
         ]
       })
     }
 
     card.push({
-      "type": "bubble",
-      "direction": "ltr",
-      "header": {
-        "type": "box",
-        "layout": "vertical",
-        "flex": 0,
-        "contents": [
+      type: "bubble",
+      direction: "ltr",
+      header: {
+        type: "box",
+        layout: "vertical",
+        flex: 0,
+        contents: [
           {
-            "type": "text",
-            "text": type.title,
-            "size": "xl",
-            "weight": "bold"
+            type: "text",
+            text: type.title,
+            size: "lg",
+            weight: "bold"
           }
         ]
       },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "action": {
-          "type": "uri",
-          "label": "Action",
-          "uri": "https://linecorp.com"
-        },
-        "contents": [
+      body: {
+        type: "box",
+        layout: "vertical",
+        spacing: "md",
+        contents: [
           {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
+            type: "box",
+            layout: "vertical",
+            spacing: "sm",
+            contents: [
               ...cardContent,
               {
-                "type": "spacer"
+                type: "spacer"
               }
             ]
           }
         ]
       },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "spacer"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "建議新增",
-              "data": "action=advise"
-            },
-            "style": "primary"
-          }
-        ]
-      },
-      "styles": {
-        "body": {
-          "backgroundColor": "#F4F4F4"
+      // footer: {
+      //   type: "box",
+      //   layout: "vertical",
+      //   contents: [
+      //     {
+      //       type: "spacer"
+      //     },
+      //     {
+      //       type: "button",
+      //       action: {
+      //         type: "postback",
+      //         label: "建議新增",
+      //         data: "action=advise"
+      //       },
+      //       color: "#AC433E",
+      //       height: "sm",
+      //       style: "primary"
+      //     }
+      //   ]
+      // },
+      styles: {
+        body: {
+          backgroundColor: "#F4F4F4"
         }
       }
     })
@@ -292,20 +249,12 @@ export const contentCarousel = async (list) => {
     cardContent = [];
   }
 
-
   return {
-    "type": "flex",
-    "altText": "目錄",
-    "contents": {
-      "type": "carousel",
-      "contents": card
+    type: "flex",
+    altText: "目錄",
+    contents: {
+      type: "carousel",
+      contents: card
     }
   }
-}
-
-
-const handleDetailText = (place) => {
-  const { start, end, dayoff } = place.business;
-  let dayoffStr = dayoff.join('、');
-  return `營業時間：${start} - ${end}\n公休日：${dayoffStr || '無'}`
-}
+};

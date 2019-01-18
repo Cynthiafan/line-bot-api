@@ -1,17 +1,18 @@
 import express from 'express';
-import linebot from './linebot';
 import routes from './routes';
 import bodyParser from 'body-parser';
 import './database';
 
+import bot from './routes/bot';
+
 const app = express();
 
 app
-  .use(function (req, res, next) {
-    // console.log(req.headers);
-    next();
-  })
-  .post('/bot', linebot)
+  // .use(function (req, res, next) {
+  //   // console.log(req.headers);
+  //   next();
+  // })
+  .use('/bot', bot)
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .use('/seoul', routes)

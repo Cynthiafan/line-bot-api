@@ -1,9 +1,8 @@
 import linebot from 'linebot';
-import { linebotConfig } from './config';
-import { Spot } from './database/schema';
-import { handleReplyMsg } from './utils/linebot-handle';
-import * as formatMsg from './utils/formatMessage';
-import { currencySVC } from './utils/service';
+import { linebotConfig } from '../config';
+import { Spot } from '../database/schema';
+import { handleReplyMsg } from '../utils/linebot-handle';
+import * as formatMsg from '../utils/formatMessage';
 
 const bot = linebot(linebotConfig);
 
@@ -26,6 +25,10 @@ bot.on('postback', async (event) => {
 bot.on('message', async (event) => {
   let replyMsg, msg, ret;
 
+  console.log('=============================');
+  console.log(JSON.stringify(event, undefined, 2));
+  console.log('=============================');
+
   if (event.message.type === 'text') {
 
     msg = event.message.text;
@@ -39,7 +42,7 @@ bot.on('message', async (event) => {
               _id: '$type',
               type: { $first: '$type' },
               result: {
-                '$push': { id: '$_id', name: '$name.zhTW', }
+                '$push': { id: '$_id', name: '$name.zhTW', area: '$location.area' }
               }
             },
           },
@@ -52,15 +55,28 @@ bot.on('message', async (event) => {
             }
           },
           { '$unwind': '$type' },
-          { '$project': { _id: 0, result: 1, type: '$type.type', title: '$type.text' } }
+          { '$project': { _id: 0, result: 1, type: '$type.type', title: '$type.text' } },
+          { '$sort': { type: 1 } }
         ]);
+        replyMsg = await handleReplyMsg(ret);
+        break;
+      case '地鐵圖':
+
+        replyMsg = await formatMsg.subwayImage();
 
         break;
       default:
         ret = await Spot.find({ keywords: msg });
+        replyMsg = await handleReplyMsg(ret);
     }
 
-    replyMsg = await handleReplyMsg(ret);
+
+
+  } else if (event.message.type === 'location') {
+    const { latitude: lat, longitude: lng } = event.message;
+    console.log(lat, lng);
+
+    replyMsg = formatMsg.text('想搜尋附近的店家嗎？此功能還在開發中哦～');
 
   } else {
     replyMsg = formatMsg.text('目前沒有支援此種訊息類型哦～');

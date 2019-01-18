@@ -10,7 +10,8 @@ const SpotSchema = new Schema({
   location: {
     lat: Number,
     lng: Number,
-    placeId: String
+    placeId: String,
+    area: String,
   },
   keywords: [String],
   description: String,
