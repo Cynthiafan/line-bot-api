@@ -3,6 +3,7 @@ import { linebotConfig } from '../config';
 import { Spot } from '../database/schema';
 import { handleReplyMsg } from '../utils/linebot-handle';
 import * as formatMsg from '../utils/formatMessage';
+import day1 from '../static/json/day1.json';
 
 const bot = linebot(linebotConfig);
 
@@ -65,6 +66,9 @@ bot.on('message', async (event) => {
         replyMsg = await formatMsg.subwayImage();
 
         break;
+      case '行程':
+
+        replyMsg = day1;
       default:
         ret = await Spot.find({ keywords: msg });
         replyMsg = await handleReplyMsg(ret);

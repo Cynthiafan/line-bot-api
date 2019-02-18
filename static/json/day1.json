@@ -1,0 +1,527 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 0,
+          "spacing": "none",
+          "margin": "none",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Day 1",
+              "size": "lg",
+              "align": "start",
+              "gravity": "center",
+              "weight": "bold",
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "text": "2019/02/26 TUE",
+              "size": "sm",
+              "gravity": "center",
+              "color": "#AAAAAA"
+            }
+          ]
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "contents": [
+            {
+              "type": "separator"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "4:30＠內湖",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "搭上計程車",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "6:00＠桃園機場一航",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "領 WIFI 機",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "7:50＠桃園機場一航",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "起飛",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "11:15＠仁川機場一航",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "到達",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "＠弘大站",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "RAON 寄放行李",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "＠乙支路入口站",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "明洞換錢",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "＠弘大站",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Juno 剪頭髮",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "16:30、17:30＠鐘閣站",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "拍證件照",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "margin": "sm",
+              "contents": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 2,
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "＠弘大站",
+                      "size": "sm",
+                      "gravity": "center",
+                      "color": "#969696"
+                    },
+                    {
+                      "type": "text",
+                      "text": "民宿 Check in",
+                      "size": "md",
+                      "gravity": "center",
+                      "color": "#727272"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 1,
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "詳細",
+                        "text": "詳細",
+                        "data": "ata=1"
+                      },
+                      "color": "#67B7BB",
+                      "height": "sm",
+                      "style": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "separator",
+              "margin": "sm"
+            }
+          ]
+        }
+      ]
+    },
+    "styles": {
+      "header": {
+        "backgroundColor": "#565656"
+      }
+    }
+  }
+}
