@@ -12,12 +12,12 @@ This is my first message bot which is used in giving travel spots information of
 
 ## Stage
 
-It's in the stage of development for now, so the functions there were not be completed yet.
+It's in the stage of development, so the functions are not be completed yet.
 
 ## Usage
 
-### Avalible languages
-Tranditional Chinese (zh-TW)
+### Available languages
+Traditional Chinese (zh-TW)
 
 ### Basic use
 
@@ -31,6 +31,8 @@ Tranditional Chinese (zh-TW)
 
 | Type | Places |
 | ---- | ------ |
-| Resturant | 土俗村參雞湯<br>清進洞解酒湯<br>站著吃韓牛|
+| Restaurant | 土俗村參雞湯<br>清進洞解酒湯<br>站著吃韓牛|
 | Area | 廣藏市場 |
 | Tool | 大使館換錢所
+
+... To be continued
