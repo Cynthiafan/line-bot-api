@@ -8,15 +8,10 @@ import bot from './routes/bot';
 const app = express();
 
 app
-  // .use(function (req, res, next) {
-  //   // console.log(req.headers);
-  //   next();
-  // })
   .use('/bot', bot)
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .use('/seoul', routes)
-
 
 const server = app.listen(process.env.PORT || 3000, function () {
   const port = server.address().port;

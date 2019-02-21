@@ -7,6 +7,7 @@ export const text = (text) => {
     text
   }
 };
+
 // ======================
 //         地鐵圖
 // ======================
@@ -17,7 +18,6 @@ export const subwayImage = () => {
     previewImageUrl: 'https://firebasestorage.googleapis.com/v0/b/line-bot-seoul.appspot.com/o/%E5%9C%B0%E9%90%B5%E5%9C%96.jpg?alt=media&token=bffb3d22-1c45-40ce-8512-1468cfa88db6'
   }
 }
-
 
 // ======================
 //        單個景點
@@ -149,6 +149,7 @@ export const singleSpot = (place) => {
     }
   }
 };
+
 // ======================
 //          目錄
 // ======================

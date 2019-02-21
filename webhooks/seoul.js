@@ -1,21 +1,34 @@
 import linebot from 'linebot';
 import { linebotConfig } from '../config';
 import { Spot } from '../database/schema';
-import { handleReplyMsg } from '../utils/linebot-handle';
+import { handleReplyMsg, handleTextMsg } from '../utils/linebot-handle';
 import * as formatMsg from '../utils/formatMessage';
-import day1 from '../static/json/day1.json';
+import { day1, day2, day3, day4, day5 } from '../static/json/schedule';
+import { outbound } from '../static/json/airplane';
+import { taxi } from '../static/json/booking';
+import translate from '@vitalets/google-translate-api';
 
 const bot = linebot(linebotConfig);
 
-
 bot.on('postback', async (event) => {
-  let replyText = event.postback.data;
+  let text = event.postback.data;
+  let replyMsg;
 
-  let replyMsg = formatMsg.text(replyText);
+  const mapping = {
+    "去程": outbound,
+    "計程車": taxi,
+  }
+
+  if (mapping[text]) {
+    replyMsg = mapping[text];
+  } else {
+    const ret = await Spot.find({ keywords: text });
+    replyMsg = await handleReplyMsg(ret);
+  }
 
   event.reply(replyMsg)
     .then(() => {
-      console.log('[MSG]', replyText);
+      console.log('[MSG]', replyMsg);
     })
     .catch(error => {
       console.log('[ERROR]' + error);
@@ -26,62 +39,76 @@ bot.on('postback', async (event) => {
 bot.on('message', async (event) => {
   let replyMsg, msg, ret;
 
-  console.log('=============================');
-  console.log(JSON.stringify(event, undefined, 2));
-  console.log('=============================');
-
   if (event.message.type === 'text') {
-
     msg = event.message.text;
 
-    switch (msg) {
-      case '目錄':
+    if (msg.includes('翻譯') && msg.substr(0, 3) === '翻譯 ') {
 
-        ret = await Spot.aggregate([
-          {
-            '$group': {
-              _id: '$type',
-              type: { $first: '$type' },
-              result: {
-                '$push': { id: '$_id', name: '$name.zhTW', area: '$location.area' }
+      const googleTranslate = async (msg) => await translate(msg, { from: 'zh-TW', to: 'ko' });
+
+      let originalMsg = msg.slice(3);
+      let translation = await googleTranslate(originalMsg);
+
+      replyMsg = await handleTextMsg(translation.text);
+
+    } else {
+
+      switch (msg) {
+
+        case '目錄':
+          ret = await Spot.aggregate([
+            {
+              '$group': {
+                _id: '$type',
+                type: { $first: '$type' },
+                result: {
+                  '$push': { id: '$_id', name: '$name.zhTW', area: '$location.area' }
+                }
+              },
+            },
+            {
+              '$lookup': {
+                from: 'type',
+                localField: 'type',
+                foreignField: 'type',
+                as: 'type'
               }
             },
-          },
-          {
-            '$lookup': {
-              from: 'type',
-              localField: 'type',
-              foreignField: 'type',
-              as: 'type'
+            { '$unwind': '$type' },
+            { '$project': { _id: 0, result: 1, type: '$type.type', title: '$type.text' } },
+            { '$sort': { type: 1 } }
+          ]);
+          replyMsg = await handleReplyMsg(ret);
+          break;
+
+        case '地鐵圖':
+          replyMsg = await formatMsg.subwayImage();
+          break;
+
+        case '行程':
+          replyMsg = {
+            "type": "flex",
+            "altText": "2/26 ~ 3/2 的行程",
+            "contents": {
+              "type": "carousel",
+              "contents": []
             }
-          },
-          { '$unwind': '$type' },
-          { '$project': { _id: 0, result: 1, type: '$type.type', title: '$type.text' } },
-          { '$sort': { type: 1 } }
-        ]);
-        replyMsg = await handleReplyMsg(ret);
-        break;
-      case '地鐵圖':
+          }
+          replyMsg.contents.contents.push(day1.contents, day2.contents, day3.contents, day4.contents, day5.contents);
+          break;
 
-        replyMsg = await formatMsg.subwayImage();
+        case '翻譯功能':
+          replyMsg = handleTextMsg('只要在句首打「翻譯 」（要有空格），就會自動翻譯你輸入的句子囉！這是來自 Google 的翻譯，所以只能提供非常基本的用法～');
+          break;
 
-        break;
-      case '行程':
-
-        replyMsg = day1;
-      default:
-        ret = await Spot.find({ keywords: msg });
-        replyMsg = await handleReplyMsg(ret);
+        default:
+          ret = await Spot.find({ keywords: msg });
+          replyMsg = await handleReplyMsg(ret);
+      }
     }
-
-
-
   } else if (event.message.type === 'location') {
     const { latitude: lat, longitude: lng } = event.message;
-    console.log(lat, lng);
-
     replyMsg = formatMsg.text('想搜尋附近的店家嗎？此功能還在開發中哦～');
-
   } else {
     replyMsg = formatMsg.text('目前沒有支援此種訊息類型哦～');
   }
