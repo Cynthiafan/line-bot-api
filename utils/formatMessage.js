@@ -138,7 +138,7 @@ export const singleSpot = (place) => {
             action: {
               type: 'uri',
               label: '出發！',
-              uri: `https://www.google.com/maps/search/?api=1&query=${place.location.lat},${place.location.lng}&query_place_id=${place.location.placeId}`
+              uri: place.location.placeId ? `https://www.google.com/maps/search/?api=1&query=${place.location.lat},${place.location.lng}&query_place_id=${place.location.placeId}` : `https://www.google.com/maps/search/?api=1&query=${place.location.lat},${place.location.lng}`
             },
             color: '#AC433E',
             height: 'sm',

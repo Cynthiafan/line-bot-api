@@ -4,8 +4,8 @@ import { Spot } from '../database/schema';
 import { handleReplyMsg, handleTextMsg } from '../utils/linebot-handle';
 import * as formatMsg from '../utils/formatMessage';
 import { day1, day2, day3, day4, day5 } from '../static/json/schedule';
-import { outbound } from '../static/json/airplane';
-import { taxi } from '../static/json/booking';
+import { outbound, inbound } from '../static/json/airplane';
+import { taxi, hotel, ski } from '../static/json/booking';
 import translate from '@vitalets/google-translate-api';
 
 const bot = linebot(linebotConfig);
@@ -16,7 +16,10 @@ bot.on('postback', async (event) => {
 
   const mapping = {
     "去程": outbound,
+    "回程": inbound,
     "計程車": taxi,
+    "住宿": hotel,
+    "滑雪": ski,
   }
 
   if (mapping[text]) {

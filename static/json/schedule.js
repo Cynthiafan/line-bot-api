@@ -392,7 +392,11 @@ export const day1 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "證件照"
+                  }
                 }
               ]
             },
@@ -434,7 +438,11 @@ export const day1 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "住宿"
+                  }
                 }
               ]
             },
@@ -537,7 +545,11 @@ export const day2 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "梨大"
+                  }
                 }
               ]
             },
@@ -625,7 +637,11 @@ export const day2 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "弘大"
+                  }
                 }
               ]
             },
@@ -723,13 +739,6 @@ export const day3 = {
                     }
                   ]
                 },
-                {
-                  "type": "text",
-                  "text": "詳細",
-                  "flex": 1,
-                  "gravity": "center",
-                  "color": "#67B7BB"
-                }
               ]
             },
             {
@@ -811,13 +820,6 @@ export const day3 = {
                     }
                   ]
                 },
-                {
-                  "type": "text",
-                  "text": "詳細",
-                  "flex": 1,
-                  "gravity": "center",
-                  "color": "#67B7BB"
-                }
               ]
             },
             {
@@ -1005,7 +1007,11 @@ export const day3 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "滑雪"
+                  }
                 }
               ]
             },
@@ -1047,7 +1053,11 @@ export const day3 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "布帳馬車"
+                  }
                 }
               ]
             },
@@ -1089,7 +1099,11 @@ export const day3 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "汗蒸幕"
+                  }
                 }
               ]
             },
@@ -1314,7 +1328,7 @@ export const day4 = {
                     },
                     {
                       "type": "text",
-                      "text": "GOGO 南山塔",
+                      "text": "GOGO 首爾塔",
                       "size": "sm",
                       "gravity": "center",
                       "color": "#727272"
@@ -1326,7 +1340,11 @@ export const day4 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "首爾塔"
+                  }
                 }
               ]
             },
@@ -1368,7 +1386,11 @@ export const day4 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "夜店"
+                  }
                 }
               ]
             },
@@ -1598,7 +1620,11 @@ export const day5 = {
                   "text": "詳細",
                   "flex": 1,
                   "gravity": "center",
-                  "color": "#67B7BB"
+                  "color": "#67B7BB",
+                  "action": {
+                    "type": "postback",
+                    "data": "回程"
+                  }
                 }
               ]
             },
