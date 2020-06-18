@@ -22,7 +22,7 @@
     "firebase": "^5.8.1",
     "firebase-admin": "^6.5.1",
     "linebot": "^1.4.1",
-    "mongoose": "^5.4.1",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.18.9",
     "ts-lint": "^4.5.1",
     "typescript": "^3.2.2",
